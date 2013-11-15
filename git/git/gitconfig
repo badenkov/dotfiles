@@ -1,0 +1,40 @@
+[user]
+	name = Alexey Badenkov
+	email = alexey.badenkov@gmail.com
+
+[color]
+  branch = auto
+  diff = auto
+  nteractive = auto
+  status = auto
+  ui = auto
+  pager = true
+
+[merge]
+  summary = true
+	tool = vimdiff
+
+[alias]
+  b = branch -v
+  r = remote -v
+  t = tag -l
+  cp = cherry-pick -x
+  co = checkout
+  br = branch
+  ci = commit
+  st = status -sb
+  ds = diff --staged
+  lg = log --pretty=format:\"%h %Cblue%ar %Cgreen%an%Creset: %s %Cred%d\"
+  amend = commit --amend -C HEAD
+  undo = reset --soft HEAD^
+  unstage = resetet HEAD --
+  uncommit = reset --soft HEAD^
+  last = log -1 HEAD
+  up = pull --rebase
+  put = push origin HEAD
+  latest = for-each-ref --sort=-committerdate --format='%(committerdate:short) %(refname:short) [%(committername)]'
+  ls = log  --decorate --date=short
+  graph = log --graph --pretty=format':%C(yellow)%h%Cblue%d%Creset %s %C(white) %an, %ar%Creset'
+
+[core]
+	editor = vim
