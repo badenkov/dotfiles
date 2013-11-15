@@ -1,0 +1,6 @@
+--color
+
+--type-add=css=scss
+--type-add=ruby=.haml,.ru
+--type-set=coffeescript=.coffee
+--type-set=coffee=.coffee
