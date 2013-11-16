@@ -1,0 +1,39 @@
+#!/bin/sh
+
+# setup the keyboard in two layouts at the same time: english (ANSI US) and
+# russian (ALT-GR international) and maps the Capslock key as another Ctrl Key.
+# The Alt+Space is used to toggle between the layouts
+setxkbmap -layout us,ru -variant altgr-intl, -option grp:alt_space_toggle -option grp_led:scroll -option ctrl:nocaps
+
+xrandr --output LVDS1 --mode 1360x768 --dpi 140
+
+syndaemon -i 1 -d
+
+# load the X11 configuration for urxvt and xterm
+xrdb -merge ~/.Xresources
+
+# start xcape to do that Ctrl key act like an Esc key when is pressed and
+# released on its own
+# ~/.bin/xcape
+
+# start udiskie for usb drives automount
+# udiskie &
+
+# start autocutsel to admin only one clipboard
+# autocutsel -fork &
+# autocutsel -selection PRIMARY -fork &
+
+# start the notification daemon dunst
+# dunst &
+
+# hide the mouse cursor when is inactive
+unclutter &
+
+# start a compositor for X11
+compton -b --config ~/.compton.conf 
+
+# start urxvt as a daemon
+urxvtd -q -o -f &
+
+# start the tiling window manager awesome
+#exec awesome
