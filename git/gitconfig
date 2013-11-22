@@ -15,6 +15,7 @@
 	tool = vimdiff
 
 [alias]
+  fix = "!f() { ${EDITOR} `git diff --name-only`; }; f"
   b = branch -v
   r = remote -v
   t = tag -l
