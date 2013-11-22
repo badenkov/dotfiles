@@ -11,6 +11,7 @@ Used oh-my-zsh with a few plugins
 * vi-mode
 * debian
 * cp
+
   Show projgress while file is copying
 
   Command: cpv src-file dst-file
