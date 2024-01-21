@@ -23,8 +23,6 @@ in {
   config = mkIf cfg.enable {
     environment.sessionVariables.NIXOS_OZONE_WL = "1"; # Hint electron apps to use wayland
     environment.systemPackages = with pkgs; [
-      kitty
-
       gtklock
 
       grim
@@ -117,7 +115,8 @@ in {
         "$mod" = "SUPER";
 
         bind = [
-          "$mod SHIFT, RETURN, exec, foot --working-directory \"$(cwd-of-activewindow)\""
+          #"$mod SHIFT, RETURN, exec, foot --working-directory \"$(cwd-of-activewindow)\""
+          "$mod SHIFT, RETURN, exec, kitty --working-directory \"$(cwd-of-activewindow)\""
           "$mod, Q, killactive,"
           "$mod, SPACE, togglefloating,"
           #"$mod, P, exec, wofi --show drun"

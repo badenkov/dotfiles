@@ -22,6 +22,27 @@
         "type": "github"
       }
     },
+    "bundix": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1705044640,
+        "narHash": "sha256-j9zJAYf78i2p0NTL7vAf/PKZ3vCaNZ5tE6tMR7t9zH0=",
+        "owner": "inscapist",
+        "repo": "bundix",
+        "rev": "4268084ca6e8da43c0c8a8a32d0ebbd55a796333",
+        "type": "github"
+      },
+      "original": {
+        "owner": "inscapist",
+        "ref": "main",
+        "repo": "bundix",
+        "type": "github"
+      }
+    },
     "darwin": {
       "inputs": {
         "nixpkgs": [
@@ -441,6 +462,20 @@
         "type": "indirect"
       }
     },
+    "nixpkgs_3": {
+      "locked": {
+        "lastModified": 1678875422,
+        "narHash": "sha256-T3o6NcQPwXjxJMn2shz86Chch4ljXgZn746c2caGxd8=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "126f49a01de5b7e35a43fd43f891ecf6d3a51459",
+        "type": "github"
+      },
+      "original": {
+        "id": "nixpkgs",
+        "type": "indirect"
+      }
+    },
     "nvfetcher": {
       "inputs": {
         "flake-compat": "flake-compat",
@@ -466,6 +501,7 @@
     "root": {
       "inputs": {
         "agenix": "agenix",
+        "bundix": "bundix",
         "flake-parts": "flake-parts",
         "github-nvim-theme": "github-nvim-theme",
         "haumea": "haumea",
@@ -475,11 +511,30 @@
         "nixos-generators": "nixos-generators",
         "nixpkgs": "nixpkgs_2",
         "nvfetcher": "nvfetcher",
+        "ruby-nix": "ruby-nix",
         "snowfall-lib": "snowfall-lib",
         "telescope-alternate-nvim": "telescope-alternate-nvim",
         "utils": "utils",
         "xdgh": "xdgh",
         "yaml-nvim": "yaml-nvim"
+      }
+    },
+    "ruby-nix": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_3"
+      },
+      "locked": {
+        "lastModified": 1705545567,
+        "narHash": "sha256-Wi/9SXfaqyLBebm2l7igMd+LNT0513N+GJoOSJRmy24=",
+        "owner": "inscapist",
+        "repo": "ruby-nix",
+        "rev": "2903b5355db1bd8b77b0350bee6a7834048280ae",
+        "type": "github"
+      },
+      "original": {
+        "owner": "inscapist",
+        "repo": "ruby-nix",
+        "type": "github"
       }
     },
     "snowfall-lib": {

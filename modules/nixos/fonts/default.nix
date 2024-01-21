@@ -13,7 +13,7 @@
         #nerdfonts
 
         #(nerdfonts.override {fonts = ["FiraCode" "JetBrainsMono"];})
-        (nerdfonts.override { fonts = [ "JetBrainsMono" ];})
+        (nerdfonts.override { fonts = [ "JetBrainsMono" "MartianMono" ];})
       ];
     };
   };

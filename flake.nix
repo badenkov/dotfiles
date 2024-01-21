@@ -78,6 +78,13 @@
       url = "github:2kabhishek/nerdy.nvim";
       flake = false;
     };
+
+    ## Ruby
+    ruby-nix.url = "github:inscapist/ruby-nix";
+    bundix = {
+      url = "github:inscapist/bundix/main";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs: (inputs.snowfall-lib.mkFlake {

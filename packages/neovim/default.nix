@@ -20,6 +20,8 @@
     nui-nvim
     nvim-treesitter.withAllGrammars
 
+    flatten-nvim
+
     direnv-vim
 
     lualine-nvim
@@ -30,8 +32,9 @@
     #telescope-frecency-nvim
     # https://github.com/otavioschwanck/telescope-alternate.nvim
     telescope-alternate-nvim
+
     #https://github.com/2kabhishek/nerdy.nvim
-    nerdy-nvim
+    #nerdy-nvim
 
     nvim-lspconfig
     comment-nvim

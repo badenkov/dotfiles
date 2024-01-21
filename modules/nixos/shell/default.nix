@@ -24,7 +24,11 @@ with lib;
         set -g fish_greeting
 
         function , --description 'add software to shell session'
-              nix shell nixpkgs#$argv[1..-1]
+          nix shell nixpkgs#$argv[1..-1]
+        end
+
+        function ,, --description 'switch to'
+          nix develop self#rubyenv1 -c fish
         end
       '';
 
