@@ -211,7 +211,7 @@ in {
         ];
 
         workspace = [
-          "1, layoutopt:orientation:bottom"
+          #"1, layoutopt:orientation:bottom"
         ];
 
         windowrule = [

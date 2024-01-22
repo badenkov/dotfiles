@@ -145,7 +145,7 @@ in {
       ### Browsers
       nyxt # Infinitely extensible web-browser (with Lisp development files using WebKitGTK platform port)
       brave
-      ungoogled-chromium
+      chromium
       firefox
 
     ];
