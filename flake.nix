@@ -45,27 +45,11 @@
     xdgh.url = "github:hyprwm/xdg-desktop-portal-hyprland";
     xdgh.inputs.nixpkgs.follows = "nixpkgs";
 
-    nvfetcher.url = "github:berberman/nvfetcher";
-    nvfetcher.inputs.nixpkgs.follows = "nixpkgs";
-
-    agenix.url = "github:ryantm/agenix";
-    agenix.inputs.nixpkgs.follows = "nixpkgs";
-
     utils.url = "github:numtide/flake-utils";
-
-    haumea = {
-      url = "github:nix-community/haumea/v0.2.2";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
 
     ## VimPlugins
     yaml-nvim = {
       url = "github:cuducos/yaml.nvim";
-      flake = false;
-    };
-
-    github-nvim-theme = {
-      url = "github:projekt0n/github-nvim-theme";
       flake = false;
     };
 

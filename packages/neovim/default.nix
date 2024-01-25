@@ -10,7 +10,6 @@
     };
 
   yaml-nvim = mkNvimPlugin inputs.yaml-nvim "yaml-nvim";
-  github-nvim-theme = mkNvimPlugin inputs.github-nvim-theme "github-nvim-theme";
   telescope-alternate-nvim = mkNvimPlugin inputs.telescope-alternate-nvim "telescope-alternate-nvim";
   nerdy-nvim = mkNvimPlugin inputs.nerdy-nvim "nerdy-nvim";
 
@@ -58,10 +57,7 @@
     nvim-window-picker
 
     # Themes
-    github-nvim-theme
-    tokyonight-nvim
-    gruvbox
-    catppuccin-nvim # Нраится
+    catppuccin-nvim
 
     ## Пробуем
     flash-nvim # Какой то аналог хоп
