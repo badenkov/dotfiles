@@ -32,9 +32,7 @@
 
       #slack
       #zoom-us
-      kotatogram-desktop # Telegram client (TDesktop fork)
       element-desktop
-      #telegram-desktop
 
       ##############################
       # Virtualization
