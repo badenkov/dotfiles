@@ -33,6 +33,9 @@
       # gnumake
 
       sqlite
+
+      nodejs
+      bun
     ];
 
     # ###
