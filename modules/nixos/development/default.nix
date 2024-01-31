@@ -16,7 +16,6 @@
 
       just
 
-      docker-compose
       process-compose
 
       libyaml # for gem psych

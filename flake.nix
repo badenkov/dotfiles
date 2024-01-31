@@ -69,6 +69,10 @@
       url = "github:inscapist/bundix/main";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    ## Process-Compose
+    process-compose.url = "github:F1bonacc1/process-compose";
+    process-compose.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = inputs: (inputs.snowfall-lib.mkFlake {
