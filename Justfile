@@ -1,6 +1,7 @@
 hostname := `hostname`
 
-default:
+# Help
+help:
   @just --list
 
 # Build the configuration

@@ -117,12 +117,12 @@ require("neo-tree").setup({
     commands = {
       telescope_find = function(state)
         local node = state.tree:get_node()
-        local path = node:get_id()
+        local path = node:get_parent_id()
         require('telescope.builtin').find_files(getTelescopeOpts(state, path))
       end,
       telescope_grep = function(state)
         local node = state.tree:get_node()
-        local path = node:get_id()
+        local path = node:get_parent_id()
         require('telescope.builtin').live_grep(getTelescopeOpts(state, path))
       end,
     },
