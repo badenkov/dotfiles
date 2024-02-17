@@ -15,6 +15,8 @@
   networking.hostId = "fcd3ddc4";
   networking.hostName = "mechrevo";
 
+  #boot.kernelPackages = pkgs.linuxPackages_zen;
+
   boot.supportedFilesystems = [ "zfs" ];
 
   boot.loader = {
