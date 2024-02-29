@@ -1,4 +1,8 @@
-{ config, ... }: let
+{ config, lib, ... }: 
+
+with lib;
+let
+  cfg = config.desktop.addons.ironbar;
   homeModule = { pkgs, ...}: {
     home.packages = with pkgs; [
       waybar
@@ -8,10 +12,6 @@
 
     programs.waybar.systemd.enable = true;
 
-    home.file."ttt.json".text = ''
-      ПРивет мир
-    '';
-
     programs.waybar.settings.mainBar = {
       name = "main";
       layer = "bottom";
@@ -20,7 +20,7 @@
 
       modules-left = [ "hyprland/workspaces" "sway/workspaces" "sway/mode" ];
       modules-center = [ "sway/window" "hyprland/window" ];
-      modules-right = [ "backlight" "pulseaudio" "battery" "clock" "sway/language" "tray" ];
+      modules-right = [ "pulseaudio" "battery" "clock" "tray" "sway/language" "hyprland/language" ];
 
       "hyprland/workspaces" = {
         "format" = "{name}";
@@ -28,6 +28,9 @@
       "hyprland/window" = {
         "max-length" = "200";
         "separate-outputs" = true;
+      };
+      "hyprland/language" = {
+          "keyboard-name" = "at-translated-set-2-keyboard";
       };
 
       "sway/workspaces" = {
@@ -52,7 +55,7 @@
       };
 
       battery = {
-        format = "{capacity}% {icon}";
+        format = "{capacity}% {icon} ";
         format-alt = "{time} {icon}";
         format-icons = [
           ""
@@ -206,6 +209,23 @@
 
     '';
   };
+
 in {
-  home-manager.users.badenkov.imports = [ homeModule ];
+  options.desktop.addons.waybar = {
+    enable = mkOption {
+      type = types.bool;
+      default = false;
+      description = ''
+        If enabled, it will be installed waybar
+      '';
+    };
+  };
+
+  config = mkIf cfg.enable {
+    home.extraOptions = {
+      imports = [
+        homeModule
+      ];
+    };
+  };
 }

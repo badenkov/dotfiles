@@ -41,7 +41,8 @@
     hyprland.enable = true;
     gnome.enable = true;
 
-    # addons.waybar.enable = true;
+    addons.waybar.enable = true;
+    addons.ironbar.enable = true;
     addons.swww.enable = true;
 
     outputs = {

@@ -45,6 +45,11 @@
     xdgh.url = "github:hyprwm/xdg-desktop-portal-hyprland";
     xdgh.inputs.nixpkgs.follows = "nixpkgs";
 
+    ironbar = {
+      url = "github:JakeStanger/ironbar";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     utils.url = "github:numtide/flake-utils";
 
     ## VimPlugins

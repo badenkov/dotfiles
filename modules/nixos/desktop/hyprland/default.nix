@@ -82,6 +82,7 @@ in {
         ];
         input = {
           kb_layout = "us,ru";
+          kb_variant = "lang";
           kb_options = "ctrl:nocaps,grp:toggle";
 
           follow_mouse = "1";
