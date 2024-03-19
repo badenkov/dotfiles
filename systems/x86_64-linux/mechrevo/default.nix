@@ -42,7 +42,7 @@
     gnome.enable = true;
 
     addons.waybar.enable = true;
-    addons.ironbar.enable = true;
+    addons.ironbar.enable = false;
     addons.swww.enable = true;
 
     outputs = {

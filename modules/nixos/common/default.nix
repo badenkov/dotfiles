@@ -22,27 +22,20 @@ with lib;
     };
 
     i18n.defaultLocale = "en_US.UTF-8";
-    console = {
-      font = "UniCyrExt_8x16";
-      #keyMap = "us";
-      useXkbConfig = true;
-    };
+    # console = {
+    #   font = "UniCyrExt_8x16";
+    #   #keyMap = "us";
+    #   useXkbConfig = true;
+    # };
 
-    services.xserver.enable = true;
-    services.xserver.layout = "us,ru";
-    services.xserver.xkbModel = "pc86";
-    services.xserver.xkbOptions = "ctrl:nocaps,grp:toggle";
+    # services.xserver.enable = true;
+    # services.xserver.layout = "us,ru";
+    # services.xserver.xkbModel = "pc86";
+    # services.xserver.xkbOptions = "ctrl:nocaps,grp:toggle";
 
     services.openssh.enable = true;
 
     environment.systemPackages = with pkgs; [
-      gnumake
-      psmisc
-      mc
-      rar
-
-      libva-utils # A collection of utilities and examples for VA-API -- хз для чего установил, не помню
-
       vial # An Open-source GUI and QMK fork for configuring your keyboard in real time
     ];
 

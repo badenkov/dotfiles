@@ -10,7 +10,7 @@ let
 
     programs.waybar.enable = true;
 
-    programs.waybar.systemd.enable = true;
+    programs.waybar.systemd.enable = false;
 
     programs.waybar.settings.mainBar = {
       name = "main";

@@ -1,9 +1,17 @@
 { options, config, lib, pkgs, ...}:
 
+
 with lib;
 {
   config = {
     environment.systemPackages = with pkgs; [
+      gnumake
+      psmisc
+      mc
+      rar
+
+      libva-utils # A collection of utilities and examples for VA-API -- хз для чего установил, не помню
+
       eza
       bat
       nitch
