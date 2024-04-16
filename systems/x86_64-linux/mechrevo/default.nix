@@ -39,7 +39,6 @@
     
     sway.enable = true;
     hyprland.enable = true;
-    gnome.enable = true;
 
     addons.waybar.enable = true;
     addons.ironbar.enable = false;

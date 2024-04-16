@@ -129,16 +129,27 @@ in {
     services.gvfs.enable = mkDefault true; # Mount, trash and other functionalities ????
     services.tumbler.enable = mkDefault true; # ??????
 
-    services.xserver.displayManager = {
-      gdm.enable = mkDefault true;
-      gdm.wayland = mkDefault true;
-    };
+    services.xserver.enable = true;
+    services.xserver.displayManager.gdm.enable = true;
+    services.xserver.displayManager.gdm.wayland = true;
+    #services.xserver.displayManager = {
+    #  gdm.enable = mkDefault true;
+    #  gdm.wayland = mkDefault true;
+    #};
 
     home.extraOptions.services.udiskie = {
       enable = true;
     };
 
-    environment.systemPackages = with pkgs; [
+    environment.systemPackages = with pkgs; let 
+      schreenshot = (writeShellScriptBin "screenshot" ''
+        ${pkgs.grim}/bin/grim -g "$(${pkgs.slurp}/bin/slurp)" - | ${pkgs.imagemagick}/bin/convert - -shave 1x1 PNG:- | wl-copy
+      '');
+
+      schreenshot-edit = (writeShellScriptBin "screenshot-edit" ''
+        wl-paste | ${pkgs.swappy}/bin/swappy -f -
+      '');
+    in [
       pavucontrol
       libcamera
 
@@ -148,6 +159,8 @@ in {
       chromium
       firefox
 
+      schreenshot
+      schreenshot-edit
     ];
 
     home.extraOptions.home.packages = with pkgs; [

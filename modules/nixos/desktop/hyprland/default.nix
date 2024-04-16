@@ -23,20 +23,6 @@ in {
   config = mkIf cfg.enable {
     environment.sessionVariables.NIXOS_OZONE_WL = "1"; # Hint electron apps to use wayland
     environment.systemPackages = with pkgs; [
-      gtklock
-
-      grim
-      slurp
-      swappy
-      imagemagick
-
-      (writeShellScriptBin "screenshot" ''
-        grim -g "$(slurp)" - | convert - -shave 1x1 PNG:- | wl-copy
-      '')
-      (writeShellScriptBin "screenshot-edit" ''
-        wl-paste | swappy -f -
-      '')
-
       (writeShellScriptBin "cwd-by-pid" ''
         # how far down does the rabbit hole go? D:
         PID=$1
@@ -58,8 +44,6 @@ in {
           echo $(cwd-by-pid $PID)
         fi
       '')
-
-      #pulseaudio
     ];
 
     programs.hyprland.enable = true;

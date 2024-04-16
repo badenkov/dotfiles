@@ -45,6 +45,10 @@
     xdgh.url = "github:hyprwm/xdg-desktop-portal-hyprland";
     xdgh.inputs.nixpkgs.follows = "nixpkgs";
 
+    waybar = {
+      url = "github:Alexays/Waybar";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     ironbar = {
       url = "github:JakeStanger/ironbar";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -69,15 +73,15 @@
     };
 
     ## Ruby
-    ruby-nix.url = "github:inscapist/ruby-nix";
-    bundix = {
-      url = "github:inscapist/bundix/main";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    #ruby-nix.url = "github:inscapist/ruby-nix";
+    #bundix = {
+    #  url = "github:inscapist/bundix/main";
+    #  inputs.nixpkgs.follows = "nixpkgs";
+    #};
 
     ## Process-Compose
-    process-compose.url = "github:F1bonacc1/process-compose";
-    process-compose.inputs.nixpkgs.follows = "nixpkgs";
+    #process-compose.url = "github:F1bonacc1/process-compose";
+    #process-compose.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = inputs: (inputs.snowfall-lib.mkFlake {

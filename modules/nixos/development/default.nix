@@ -16,7 +16,7 @@
 
       just
 
-      process-compose
+      #process-compose
 
       libyaml # for gem psych
       gitFull
@@ -33,13 +33,17 @@
 
       sqlite
 
-      nodejs
-      bun
+      devenv
     ];
 
     # ###
-    # virtualisation.docker.enable = true;
-    # virtualisation.podman.enable = true;
+    virtualisation.docker.enable = true;
+
+    #virtualisation.podman = {
+    #  enable = true;
+    #  dockerCompat = true;
+    #};
+
     # virtualisation.libvirtd.enable = true;
     # ####
   };

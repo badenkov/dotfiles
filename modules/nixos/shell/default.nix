@@ -35,13 +35,13 @@ with lib;
           nix shell nixpkgs#$argv[1..-1]
         end
 
-        function ,,, --description 'switch to'
-          nix develop self#rubyenv1 -c fish
-        end
+        #function ,,, --description 'switch to'
+        #  nix develop self#rubyenv1 -c fish
+        #end
 
-        function ,, --description 'switch to'
-          nix develop ~/Projects/mydevshell -c fish
-        end
+        #function ,, --description 'switch to'
+        #  nix develop ~/Projects/mydevshell -c fish
+        #end
       '';
 
       plugins = [

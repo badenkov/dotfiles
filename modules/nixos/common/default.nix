@@ -17,6 +17,7 @@ with lib;
 
       extraHosts = ''
         127.0.0.1 lvh.me firm1.lvh.me
+        116.203.133.168 badenkov.example
       '';
       #172.20.0.1 portal2.captive.network captive.network network
     };

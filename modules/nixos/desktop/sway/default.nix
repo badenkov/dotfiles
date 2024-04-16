@@ -50,14 +50,12 @@ let
         up = "k";
         right = "l";
 
-        terminal = "foot";
+        terminal = "kitty";
         menu = "bemenu-run";
 
         bindkeysToCode = true;
         keybindings = {
-          #"${modifier}+Shift+Return" = "exec ${terminal} -D `swaycwd`";
-          #"${modifier}+Shift+Return" = "exec alacritty --working-directory `swaycwd`";
-          "${modifier}+Shift+Return" = "exec foot --working-directory `swaycwd`";
+          "${modifier}+Shift+Return" = "exec ${terminal} --working-directory `swaycwd`";
 
           "${modifier}+q" = "kill";
           "${modifier}+p" = "exec ${menu}";
@@ -136,6 +134,14 @@ let
           "${modifier}+F4" = "exec pamixer -t";
         
           "${modifier}+Shift+Backspace" = "exec swaylock -c 000000";
+
+          "Print" = "exec screenshot";
+          "${modifier}+Print" = "exec screenshot-edit";
+
+          # Configure monitors and save their configurations in files
+          "${modifier}+F12" = "exec nwg-displays";
+          # Show focused window info
+          "${modifier}+Shift+F12" = "exec swaymsg -t get_tree | jq '.. | (.nodes? // empty)[] | select(.focused==true)' | swaynag -m \"Window Info\" -l";
         };
 
         input = {
@@ -161,31 +167,31 @@ let
         } // outputs;
 
         bars = [];
-
-        # bars = [
-        #   {
-        #     command = "waybar";
-        #   }
-        # ];
       };
 
       extraConfig = ''
+        show_marks yes
+
+        gaps outer 0px
+        gaps inner 0px
+
+        smart_borders no_gaps
+        default_border pixel 2
+        default_floating_border pixel 2
+
         # exec configure-gtk
         exec dbus-sway-environment
 
-        # screenshots
-        bindsym Mod4+c exec grim  -g "$(slurp)" /home/badenkov/$(date +'%H:%M:%S.png')
-
+        include ${config.home.homeDirectory}/.config/sway/outputs
         include ${config.home.homeDirectory}/.sway.local
       '';
     };
 
     home.activation.mySwayActionScript = ''
       test -f ${config.home.homeDirectory}/.sway.local || touch ${config.home.homeDirectory}/.sway.local
+      test -f ${config.home.homeDirectory}/.config/sway/outputs || touch ${config.home.homeDirectory}/.config/sway/outputs
     '';
 
-    # Для мониторов
-    #services.kanshi.enable = true;
 
     # Day/night gamma adjustments
     services.wlsunset = {
@@ -215,6 +221,8 @@ in {
     };
 
     environment.systemPackages = with pkgs; [
+      nwg-displays
+
       swayimg # Image viewer for Sway/Wayland 
 
       mako # notification system developed by swaywm maintainer
@@ -227,7 +235,6 @@ in {
 
       lswt # A command that lists Wayland toplevels
 
-      wdisplays
       wlr-randr
       way-displays # Auto Manage Your Wayland Displays
 
