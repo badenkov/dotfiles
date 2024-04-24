@@ -47,7 +47,7 @@ with lib;
     customRC =
       ''
         vim.loader.enable()
-        vim.opt.rtp:prepend('${./config/lua}')
+        vim.opt.rtp:prepend('${./config}')
       ''
       + (builtins.readFile ./config/init.lua)
       + neovimConfig.neovimRcContent

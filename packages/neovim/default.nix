@@ -12,6 +12,7 @@
   yaml-nvim = mkNvimPlugin inputs.yaml-nvim "yaml-nvim";
   telescope-alternate-nvim = mkNvimPlugin inputs.telescope-alternate-nvim "telescope-alternate-nvim";
   nerdy-nvim = mkNvimPlugin inputs.nerdy-nvim "nerdy-nvim";
+  vim-slim = mkNvimPlugin inputs.vim-slim "vim-slim";
 
   plugins = with pkgs.vimPlugins; [
     plenary-nvim
@@ -46,12 +47,12 @@
     #codeium-vim
 
     yaml-nvim
-
     vim-nix
     vim-javascript
     typescript-vim
     vim-jsx-typescript
     vim-prettier
+    vim-slim
 
     mini-nvim
     nvim-window-picker

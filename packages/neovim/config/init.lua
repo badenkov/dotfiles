@@ -129,12 +129,14 @@ require("neo-tree").setup({
   },
 })
 
-vim.keymap.set('n', '<space>n', '<cmd>Neotree source=filesystem toggle<cr>')
-vim.keymap.set('n', '<space>N', '<cmd>Neotree source=filesystem reveal toggle<cr>')
-vim.keymap.set('n', '<space>g', '<cmd>Neotree source=git_status toggle<cr>')
-vim.keymap.set('n', '<space>b', '<cmd>Neotree source=buffers toggle<cr>')
+--vim.keymap.set('n', '<space>n', '<cmd>Neotree source=filesystem toggle<cr>')
+--vim.keymap.set('n', '<space>N', '<cmd>Neotree source=filesystem reveal toggle<cr>')
+--vim.keymap.set('n', '<space>g', '<cmd>Neotree source=git_status toggle<cr>')
+--vim.keymap.set('n', '<space>b', '<cmd>Neotree source=buffers toggle<cr>')
 
-require('Comment').setup()
+--require('Comment').setup()
+
+require('plugins/neotree');
 
 require('gitblame').setup()
 

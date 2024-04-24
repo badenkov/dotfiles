@@ -72,6 +72,11 @@
       flake = false;
     };
 
+    vim-slim = { 
+      url = "github:slim-template/vim-slim";
+      flake = false;
+    };
+
     ## Ruby
     #ruby-nix.url = "github:inscapist/ruby-nix";
     #bundix = {

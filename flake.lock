@@ -470,6 +470,7 @@
         "snowfall-lib": "snowfall-lib",
         "telescope-alternate-nvim": "telescope-alternate-nvim",
         "utils": "utils",
+        "vim-slim": "vim-slim",
         "waybar": "waybar",
         "xdgh": "xdgh",
         "yaml-nvim": "yaml-nvim"
@@ -656,6 +657,22 @@
       "original": {
         "owner": "numtide",
         "repo": "flake-utils",
+        "type": "github"
+      }
+    },
+    "vim-slim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1595958781,
+        "narHash": "sha256-dkFTxBi0JAPuIkJcVdzE8zUswHP0rVZqiCE6NMywDm8=",
+        "owner": "slim-template",
+        "repo": "vim-slim",
+        "rev": "f0758ea1c585d53b9c239177a8b891d8bbbb6fbb",
+        "type": "github"
+      },
+      "original": {
+        "owner": "slim-template",
+        "repo": "vim-slim",
         "type": "github"
       }
     },
