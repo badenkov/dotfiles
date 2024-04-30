@@ -58,7 +58,7 @@ let
           "${modifier}+Shift+Return" = "exec ${terminal} --working-directory `swaycwd`";
 
           "${modifier}+q" = "kill";
-          "${modifier}+p" = "exec ${menu}";
+          "${modifier}+p" = "exec $menu";
 
           "${modifier}+${left}" = "focus left";
           "${modifier}+${down}" = "focus down";
@@ -133,7 +133,10 @@ let
           "XF86AudioMute" = "exec pamixer -t";
           "${modifier}+F4" = "exec pamixer -t";
         
+          "${modifier}+Backspace" = "exec darkman toggle";
           "${modifier}+Shift+Backspace" = "exec swaylock -c 000000";
+
+          "${modifier}+i" = "exec pkill -USR2 -u $USER waybar || true";
 
           "Print" = "exec screenshot";
           "${modifier}+Print" = "exec screenshot-edit";
@@ -182,15 +185,31 @@ let
         # exec configure-gtk
         exec dbus-sway-environment
 
+        include ${config.home.homeDirectory}/.config/sway/colors
         include ${config.home.homeDirectory}/.config/sway/outputs
+
         include ${config.home.homeDirectory}/.sway.local
       '';
     };
 
     home.activation.mySwayActionScript = ''
       test -f ${config.home.homeDirectory}/.sway.local || touch ${config.home.homeDirectory}/.sway.local
+      test -f ${config.home.homeDirectory}/.config/sway/colors || touch ${config.home.homeDirectory}/.config/sway/colors
       test -f ${config.home.homeDirectory}/.config/sway/outputs || touch ${config.home.homeDirectory}/.config/sway/outputs
     '';
+
+    services.darkman = let
+      h = config.home.homeDirectory;
+    in {
+      lightModeScripts.waybar = ''
+        cp -f ${./light} ${h}/.config/sway/colors
+        swaymsg reload
+      '';
+      darkModeScripts.waybar = ''
+        cp -f ${./dark} ${h}/.config/sway/colors
+        swaymsg reload
+      '';
+    };
 
 
     # Day/night gamma adjustments
