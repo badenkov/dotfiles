@@ -173,6 +173,8 @@ let
       };
 
       extraConfig = ''
+        font pango:Sans 14px
+
         show_marks yes
 
         gaps outer 0px
