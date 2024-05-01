@@ -10,24 +10,11 @@
     ];
   };
 
-  #nixConfig = {
-    #extra-experimental-feature = "nix-command flakes";
-    #extra-substituters = [
-      #"https://cache.nixos.org"
-      #"https://nix-community.cachix.org"
-      #"https://nixpkgs-wayland.cachix.org"
-    #];
-    #extra-trusted-public-keys = [
-      #"cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
-      #"nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-      #"nixpkgs-wayland.cachix.org-1:3lwxaILxMRkVhehr5StQprHdEo4IrE8sRho9R9HOLYA="
-    #];
-  #};
-
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-unstable";
+    #nixpkgs.url = "nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    flake-parts.url = "github:hercules-ci/flake-parts";
+    #flake-parts.url = "github:hercules-ci/flake-parts";
 
     snowfall-lib = {
       url = "github:snowfallorg/lib/dev";
@@ -56,7 +43,12 @@
 
     utils.url = "github:numtide/flake-utils";
 
-    ## VimPlugins
+    ## NeoVim and plugins
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     yaml-nvim = {
       url = "github:cuducos/yaml.nvim";
       flake = false;

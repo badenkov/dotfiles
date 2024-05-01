@@ -220,14 +220,14 @@ in {
         #   package = pkgs.materia-theme;
         # };
 
-        # theme = {
-        #   name = "Adwaita";
-        #   package = pkgs.gnome.gnome-themes-extra;
-        # };
         theme = {
-          name = "Materia";
-          package = theme;
+          name = "Adwaita";
+          package = pkgs.gnome.gnome-themes-extra;
         };
+        #theme = {
+        #  name = "Materia";
+        #  package = theme;
+        #};
 
         # theme = {
         #   name = "Catppuccin-Frappe-Standard-Green-Dark";
