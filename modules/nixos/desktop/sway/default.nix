@@ -29,7 +29,35 @@ let
     in ''
       export XDG_DATA_DIRS=${datadir}:$XDG_DATA_DIRS
       gnome_schema=org.gnome.desktop.interface
-      gsettings set $gnome_schema gtk-theme 'Dracula'
+      gsettings set $gnome_schema gtk-theme 'Catppuccin-Mocha-Standard-Lavender-Dark'
+      gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+    '';
+  };
+  configure-gtk1 = pkgs.writeTextFile {
+    name = "configure-gtk1";
+    destination = "/bin/configure-gtk1";
+    executable = true;
+    text = let
+      schema = pkgs.gsettings-desktop-schemas;
+      datadir = "${schema}/share/gsettings-schemas/${schema.name}";
+    in ''
+      export XDG_DATA_DIRS=${datadir}:$XDG_DATA_DIRS
+      gnome_schema=org.gnome.desktop.interface
+      gsettings set $gnome_schema gtk-theme 'Catppuccin-Latte-Standard-Lavender-Light'
+      gsettings set org.gnome.desktop.interface color-scheme 'prefer-light'
+    '';
+  };
+  get-gtk = pkgs.writeTextFile {
+    name = "get-gtk";
+    destination = "/bin/get-gtk";
+    executable = true;
+    text = let
+      schema = pkgs.gsettings-desktop-schemas;
+      datadir = "${schema}/share/gsettings-schemas/${schema.name}";
+    in ''
+      export XDG_DATA_DIRS=${datadir}:$XDG_DATA_DIRS
+      gnome_schema=org.gnome.desktop.interface
+      gsettings get $gnome_schema gtk-theme
     '';
   };
   fn = k: v: { 
@@ -184,7 +212,7 @@ let
         default_border pixel 2
         default_floating_border pixel 2
 
-        # exec configure-gtk
+        exec configure-gtk
         exec dbus-sway-environment
 
         include ${config.home.homeDirectory}/.config/sway/colors
@@ -242,6 +270,8 @@ in {
     };
 
     environment.systemPackages = with pkgs; [
+
+
       nwg-displays
 
       swayimg # Image viewer for Sway/Wayland 
@@ -285,7 +315,9 @@ in {
       wofi
 
       # scripts
-      #configure-gtk
+      configure-gtk
+      configure-gtk1
+      get-gtk
       dbus-sway-environment
     ];
 

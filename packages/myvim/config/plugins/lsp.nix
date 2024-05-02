@@ -15,7 +15,8 @@
     lsp.servers.elixirls.enable = true;
     lsp.servers.elixirls.cmd = [ "direnv" "exec" "." "elixir-ls" ];
 
-    lsp.servers.nixd.enable = true;
+    # lsp.servers.nixd.enable = true;
+    lsp.servers.nil_ls.enable = true;
 
     lsp.servers.lua-ls.enable = true;
   };

@@ -39,16 +39,10 @@
   clipboard = {
     register = "unnamedplus";
   };
-  # colorschemes.catppuccin = {
-  #   enable = true;
-  #   settings.flavour = "mocha";
-  # };
-  colorschemes = {
-    catppuccin.enable = true;
-    catppuccin.settings.flavour = "latte";
-    #tokynight.enable = true;
-    #rose-pine.enable = true;
-    #kanagawa.enable = true;
+
+  colorschemes.catppuccin = {
+    enable = true;
+    settings.flavour = "mocha";
   };
 }
 

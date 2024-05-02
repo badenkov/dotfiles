@@ -7,12 +7,14 @@
 
     direnv.enable = true;
 
-    neo-tree.enable = true;
-
-    project-nvim = {
+    neo-tree = {
       enable = true;
-      enableTelescope = true;
     };
+
+    # project-nvim = {
+    #   enable = true;
+    #   enableTelescope = true;
+    # };
     persistence.enable = true;
 
     comment.enable = true;
