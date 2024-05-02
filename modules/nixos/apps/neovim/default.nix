@@ -6,22 +6,45 @@
 
     environment.systemPackages = with pkgs; [
       custom.myvim
-    ];
+    ] ++ (let
+      get-neovim-serverlist = pkgs.writeShellScriptBin "get-neovim-serverlist" ''
+        export PATH=${pkgs.lib.makeBinPath [pkgs.neovim-remote pkgs.gnugrep]}:$PATH
+
+        nvr --serverlist | grep "/run" | grep "/nvim" | uniq
+      '';
+      set-neovim-light = pkgs.writeShellScriptBin "set-neovim-light" ''
+        export PATH=${pkgs.lib.makeBinPath [pkgs.neovim-remote]}:$PATH
+
+        for server in $(get-neovim-serverlist); do
+          echo "nvr --servername $server -cc 'colorscheme catppuccin-latte' --nostart"
+          nvr --servername "$server" -cc 'colorscheme catppuccin-latte' --nostart
+        done
+      '';
+      set-neovim-dark = pkgs.writeShellScriptBin "set-neovim-dark" ''
+        export PATH=${pkgs.lib.makeBinPath [pkgs.neovim-remote]}:$PATH
+
+        for server in $(get-neovim-serverlist); do
+          echo "nvr --servername $server -cc 'colorscheme catppuccin-mocha' --nostart"
+          nvr --servername "$server" -cc 'colorscheme catppuccin-mocha' --nostart
+        done
+      '';
+    in [
+      get-neovim-serverlist
+      set-neovim-light
+      set-neovim-dark
+    ]);
+
 
     home.extraOptions.services.darkman = {
       darkModeScripts = {
-        # neovim = ''
-        #   for server in $(${pkgs.neovim-remote}/bin/nvr --serverlist | ${pkgs.gnugrep}/bin/grep "/run"); do
-        #     ${pkgs.neovim-remote}/bin/nvr --servername "$server" -cc 'colorscheme catppuccin-mocha'
-        #   done
-        # '';
+        neovim = ''
+          set-neovim-dark
+        '';
       };
       lightModeScripts = {
-        # neovim = ''
-        #   for server in $(${pkgs.neovim-remote}/bin/nvr --serverlist | ${pkgs.gnugrep}/bin/grep "/run"); do
-        #     ${pkgs.neovim-remote}/bin/nvr --servername "$server" -cc 'colorscheme catppuccin-latte'
-        #   done
-        # '';
+        neovim = ''
+          set-neovim-light
+        '';
       };
     };
   };
