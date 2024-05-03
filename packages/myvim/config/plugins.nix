@@ -114,5 +114,15 @@
 
     -- if you only want these mappings for toggle term use term://*toggleterm#* instead
     vim.cmd('autocmd! TermOpen term://*toggleterm#* lua set_terminal_keymaps()')
+
+
+    -- for neo-ufo
+    vim.api.nvim_create_autocmd("FileType", {
+      pattern = { "nvcheatsheet", "neo-tree" },
+      callback = function()
+        require("ufo").detach()
+        vim.opt_local.foldenable = false
+      end
+    })
   '';
 }
