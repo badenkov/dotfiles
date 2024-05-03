@@ -1,4 +1,4 @@
-{
+{ pkgs, ...}: {
   globals = {
     mapleader = " ";
     maplocalleader = ",";
@@ -40,9 +40,13 @@
     register = "unnamedplus";
   };
 
-  colorschemes.catppuccin = {
-    enable = true;
-    settings.flavour = "mocha";
-  };
+  extraPlugins = with pkgs.vimPlugins; [
+    catppuccin-nvim
+  ];
+
+  # colorschemes.catppuccin = {
+  #   enable = true;
+  #   settings.flavour = "mocha";
+  # };
 }
 

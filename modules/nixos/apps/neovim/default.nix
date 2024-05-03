@@ -5,7 +5,16 @@
     };
 
     environment.systemPackages = with pkgs; [
-      custom.myvim
+      (custom.myvim.nixvimExtend {
+        extraConfigLua = ''
+          if (vim.fn.system("darkman get"):gsub("\n", "") == "light") 
+          then
+            vim.cmd("colorscheme catppuccin-latte")
+          else
+            vim.cmd("colorscheme catppuccin-mocha")
+          end
+        '';
+      })
     ] ++ (let
       get-neovim-serverlist = pkgs.writeShellScriptBin "get-neovim-serverlist" ''
         export PATH=${pkgs.lib.makeBinPath [pkgs.neovim-remote pkgs.gnugrep]}:$PATH
