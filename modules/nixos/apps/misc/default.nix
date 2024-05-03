@@ -6,10 +6,6 @@
       #### CLI
       sysz # A fzf terminal UI for systemctl
 
-      #####
-      ranger # File manager
-      yazi # Filemanager
-
       # Next is necessary for yazi
       libsixel # The SIXEL library for console graphics, and converter programs
       poppler # for pdf preview 
