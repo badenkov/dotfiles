@@ -27,6 +27,9 @@
     nixos-generators.url = "github:nix-community/nixos-generators";
     nixos-generators.inputs.nixpkgs.follows = "nixpkgs";
 
+    nix-index-database.url = "github:nix-community/nix-index-database";
+    nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
+
     hyprland.url = "github:hyprwm/Hyprland";
     hyprland.inputs.nixpkgs.follows = "nixpkgs";
     xdgh.url = "github:hyprwm/xdg-desktop-portal-hyprland";
@@ -42,6 +45,7 @@
     };
 
     utils.url = "github:numtide/flake-utils";
+
 
     ## NeoVim and plugins
     nixvim = {

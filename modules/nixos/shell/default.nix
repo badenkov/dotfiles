@@ -1,8 +1,12 @@
-{ options, config, lib, pkgs, ...}:
+{ inputs, lib, pkgs, ...}:
 
 
 with lib;
 {
+  imports = [
+    inputs.nix-index-database.nixosModules.nix-index
+  ];
+
   config = {
     environment.systemPackages = with pkgs; [
       gnumake
@@ -13,7 +17,6 @@ with lib;
       libva-utils # A collection of utilities and examples for VA-API -- хз для чего установил, не помню
 
       eza
-      bat
       nitch
       zoxide
       starship
@@ -21,6 +24,10 @@ with lib;
 
     users.defaultUserShell = pkgs.fish;
     users.users.root.shell = pkgs.bashInteractive;
+
+    programs.command-not-found.enable = false;
+    programs.nix-index.enable = true;
+    programs.nix-index.enableFishIntegration = true;
 
     home.programs.fish = {
       enable = true;

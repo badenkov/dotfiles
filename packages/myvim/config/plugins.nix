@@ -20,6 +20,8 @@
     comment.enable = true;
     neogit.enable = true;
 
+    image.enable = true;
+
     fzf-lua = {
       enable = true;
       # keymaps = {
