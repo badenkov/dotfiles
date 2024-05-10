@@ -90,6 +90,9 @@ in {
       schreenshot-edit
     ];
 
+    home.extraOptions.services.network-manager-applet.enable = true;
+    home.extraOptions.services.blueman-applet.enable = true;
+
     # xdg-desktop-portal works by exposing a series of D-Bus interfaces
     # known as portals under a well-known name
     # (org.freedesktop.portal.Desktop) and object path
