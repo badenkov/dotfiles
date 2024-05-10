@@ -1,4 +1,4 @@
-{ options, config, pkgs, lib, ... }:
+{ config, pkgs, lib, ... }:
 
 with lib;
 
@@ -25,5 +25,36 @@ in {
         done
       '')
     ];
+
+
+
+    home.extraOptions = let
+      wallpapers = ../../../../../wallpapers;
+    in {
+      services.darkman.lightModeScripts.swww = ''
+        swww img ${wallpapers}/nixos-wallpaper-catppuccin-latte.png --resize crop --transition-fps 255 --transition-type wipe
+      '';
+      services.darkman.darkModeScripts.swww = ''
+        swww img ${wallpapers}/nixos-wallpaper-catppuccin-mocha.png --resize crop --transition-fps 255 --transition-type wipe
+      '';
+
+      systemd.user.services.swww = {
+        Unit = {
+          Description =
+            "A Solution to your Wayland Wallpaper Woes.";
+          Documentation = "https://github.com/LGFae/swww";
+          PartOf = [ "graphical-session.target" ];
+          After = [ "graphical-session-pre.target" ];
+        };
+
+        Service = {
+          ExecStart = "${pkgs.swww}/bin/swww-daemon";
+          Restart = "on-failure";
+          KillMode = "mixed";
+        };
+
+        Install = { WantedBy = [ "graphical-session.target" ]; };
+      };
+    };
   };
 }

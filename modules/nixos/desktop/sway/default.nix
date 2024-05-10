@@ -169,6 +169,7 @@ let
           "Print" = "exec screenshot";
           "${modifier}+Print" = "exec screenshot-edit";
 
+          "F12" = "exec wallpapper";
           # Configure monitors and save their configurations in files
           "${modifier}+F12" = "exec nwg-displays";
           # Show focused window info
@@ -191,11 +192,12 @@ let
           };
         };
 
-        output = {
-          "*" = {
-            bg = "${./wallpapers/pexels-steve-johnson-1416367.jpg} fill";
-          };
-        } // outputs;
+        # output = {
+        #   "*" = {
+        #     bg = "${./wallpapers/pexels-steve-johnson-1416367.jpg} fill";
+        #   };
+        # } // outputs;
+        #
 
         bars = [];
       };

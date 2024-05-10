@@ -4,7 +4,7 @@
   color: @text;
 
   font-family:   Sans;
-  font-size:     14px;
+  font-size:     13px;
 
   border:        none;
   border-radius: 0;
@@ -15,67 +15,60 @@
 }
 
 window#waybar {
-  background: @base;
+  background: @crust;
 }
 
 #workspaces {
-  margin: 5px 0 5px 10px;
+  margin: 0px 0px 0px 10px;
   padding: 0 10px;
-
-  background: @surface0;
-
-  border: 0px solid @surface0;
-  border-radius: 15px;
 }
 
 #workspaces button {
-  padding: 2px 10px;
+  margin: 0 2px;
+  padding: 0px 10px;
   min-width: 0;
 
-  border: 0px solid @surface0;
-  border-radius: 15px;
-  color: @text;
+  background: transparent;
+}
+
+#workspaces button:hover {
+	color: @overlay2;
 }
 
 #workspaces button.visible {
   font-weight: bold;
-  color: @overlay2;
+  color: @base;
+
+  background: transparent;
 }
 
 #workspaces button.urgent {
   color: @red;
 }
 
-#workspaces button:hover {
-  background: @surface0;
-	color: @overlay2;
-}
-
 #window {
-  margin: 5px 0px 5px 0px;
+  margin: 0px 0px 0px 0px;
   padding: 5px 10px;
 
-  background: @base;
 	color: @text;
 }
 
 #pulseaudio {
-  margin: 5px 0px 5px 0px;
+  margin: 0px 0px 0px 0px;
   padding: 5px 5px 5px 15px;
 
   color: @text;
-  background: @surface0;
 
   border: 0px solid @surface0;
   border-radius: 15px 0 0 15px;
 }
 
 #battery {
-  margin: 5px 0px 5px 0px;
+  margin: 0px 0px 0px 0px;
   padding: 5px 10px;
 
   color: @text;
-  background: @surface0;
+  background: transparent;
 }
 
 #battery.warning {
@@ -91,26 +84,23 @@ window#waybar {
 }
 
 #clock {
-  margin: 5px 0 5px 0px;
+  margin: 0px 0px 0px 0px;
   padding: 5px 5px;
 
-  background: @surface0;
   color: @text;
 }
 
 #language {
-  margin: 5px 0px 5px 0px;
+  margin: 0px 0px 0px 0px;
   padding: 0 5px;
 
-  background: @surface0;
   color: @text;
 }
 
 #tray {
-  margin: 5px 10px 5px 0px;
+  margin: 0px 0px 0px 0px;
   padding: 0 15px 0 10px;
 
-  background: @surface0;
   color: @text;
 
   border: 0px solid @surface0;
