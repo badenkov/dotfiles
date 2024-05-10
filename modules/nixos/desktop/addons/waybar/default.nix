@@ -18,7 +18,7 @@ in {
     home.extraOptions = {
       programs.waybar.enable = true;
       programs.waybar.systemd.enable = true;
-      programs.waybar.package = inputs.waybar.packages.${system}.default;
+      #programs.waybar.package = inputs.waybar.packages.${system}.default;
       programs.waybar = {
         style = ./style.css;
 
