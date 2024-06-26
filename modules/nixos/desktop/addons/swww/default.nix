@@ -8,7 +8,7 @@ in {
   options.desktop.addons.swww = {
     enable = mkOption { 
       type = types.bool;
-      default = false;
+      default = true;
       description = "Enable or disable SWWW";
     };
   };
@@ -32,9 +32,13 @@ in {
       wallpapers = ../../../../../wallpapers;
     in {
       services.darkman.lightModeScripts.swww = ''
+        export PATH=${pkgs.lib.makeBinPath [pkgs.bash pkgs.swww]}:$PATH
+
         swww img ${wallpapers}/nixos-wallpaper-catppuccin-latte.png --resize crop --transition-fps 255 --transition-type wipe
       '';
       services.darkman.darkModeScripts.swww = ''
+        export PATH=${pkgs.lib.makeBinPath [pkgs.bash pkgs.swww]}:$PATH
+
         swww img ${wallpapers}/nixos-wallpaper-catppuccin-mocha.png --resize crop --transition-fps 255 --transition-type wipe
       '';
 

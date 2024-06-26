@@ -31,13 +31,13 @@ in {
   home.extraOptions.services.darkman = {
     darkModeScripts = {
       bat = ''
-        ln -sf ${h}/.config/bat/dark-config ${h}/.config/bat/config
+        ${pkgs.coreutils}/bin/ln -sf ${h}/.config/bat/dark-config ${h}/.config/bat/config
       '';
     };
 
     lightModeScripts = {
       bat = ''
-        ln -sf ${h}/.config/bat/light-config ${h}/.config/bat/config
+        ${pkgs.coreutils}/bin/ln -sf ${h}/.config/bat/light-config ${h}/.config/bat/config
       '';
     };
   };

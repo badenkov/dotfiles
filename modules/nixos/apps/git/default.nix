@@ -1,10 +1,9 @@
 { config, pkgs, lib, ...}:  {
   config = {
     environment.systemPackages = with pkgs; [
-      git
+      gitFull
       lazygit
     ];
-
 
     home.programs.git = {
       enable = true;

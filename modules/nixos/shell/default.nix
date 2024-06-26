@@ -13,13 +13,23 @@ with lib;
       psmisc
       mc
       rar
-
-      libva-utils # A collection of utilities and examples for VA-API -- хз для чего установил, не помню
+      unzip
 
       eza
       nitch
       zoxide
       starship
+      silver-searcher
+      ripgrep
+      fd
+      lf
+      fzf # A command-line fuzzy finder written in Go
+      erdtree # File-tree visualizer and disk usage analyzer
+      glow # Render markdown in CLI
+      carapace
+      #jc # CLI tool and python library that converts the output of popular command-line tools,
+      # file-types, and common strings to JSON, YAML, or Dictionaries. This allows piping of output to tools
+      # like jq and simplifying automation scripts.
     ];
 
     users.defaultUserShell = pkgs.fish;

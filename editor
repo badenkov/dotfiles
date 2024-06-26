@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+#! bash -e
+
+function cleanup {
+  if [ -f /tmp/editor.sock ]; then
+    echo "Removing /tmp/editor.sock"
+    rm /tmp/editor.sock
+  fi
+}
+
+trap cleanup EXIT
+
+if [ -e /tmp/editor.sock ]; then
+  echo "File /tmp/editor.sock exists"
+  rm /tmp/editor.sock
+else
+  echo "File /tmp/editor.sock doesn't exists"
+fi
+
+nvim --headless --listen /tmp/editor.sock &
+
+neovide --server /tmp/editor.sock --no-fork

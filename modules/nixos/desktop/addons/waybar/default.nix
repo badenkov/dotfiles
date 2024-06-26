@@ -7,7 +7,7 @@ in {
   options.desktop.addons.waybar = {
     enable = mkOption {
       type = types.bool;
-      default = false;
+      default = true;
       description = ''
         If enabled, it will be installed waybar
       '';
@@ -31,7 +31,8 @@ in {
 
           modules-left = [ "sway/workspaces" "sway/mode"];
           modules-center = [ "sway/window" ];
-          modules-right = [ "pulseaudio" "battery" "clock" "sway/language" "tray"];
+          modules-right = [ "pulseaudio" "battery" "clock" "sway/language" ];
+          #"tray"];
 
           # "hyprland/workspaces" = {
           #   "format" = "{name}";
@@ -154,12 +155,16 @@ in {
       h = "/home/${config.user.name}";
     in {
       lightModeScripts.waybar = ''
+        export PATH=${pkgs.lib.makeBinPath [pkgs.coreutils pkgs.procps]}:$PATH
+
         cp -f ${./light.css} ${h}/.config/waybar/colors.css
-        ${pkgs.procps}/bin/pkill -USR2 -u $USER waybar || true
+        pkill -USR2 -u $USER waybar || true
       '';
       darkModeScripts.waybar = ''
+        export PATH=${pkgs.lib.makeBinPath [pkgs.coreutils pkgs.procps]}:$PATH
+
         cp -f ${./dark.css} ${h}/.config/waybar/colors.css
-        ${pkgs.procps}/bin/pkill -USR2 -u $USER waybar || true
+        pkill -USR2 -u $USER waybar || true
       '';
     };
   };

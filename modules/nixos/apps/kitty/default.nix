@@ -22,12 +22,16 @@
 
     home.extraOptions = {
       services.darkman.lightModeScripts.kitty = ''
+        export PATH=${pkgs.lib.makeBinPath [pkgs.coreutils pkgs.procps]}:$PATH
+
         cp -f ${pkgs.kitty-themes}/share/kitty-themes/themes/Catppuccin-Latte.conf ${h}/.config/kitty/current-theme.conf
-        ${pkgs.procps}/bin/pkill -USR1 -u $USER kitty || true
+        pkill -USR1 -u $USER kitty || true
       '';
       services.darkman.darkModeScripts.kitty = ''
+        export PATH=${pkgs.lib.makeBinPath [pkgs.coreutils pkgs.procps]}:$PATH
+
         cp -f ${pkgs.kitty-themes}/share/kitty-themes/themes/Catppuccin-Mocha.conf ${h}/.config/kitty/current-theme.conf
-        ${pkgs.procps}/bin/pkill -USR1 -u $USER kitty || true
+        pkill -USR1 -u $USER kitty || true
       '';
     };
 

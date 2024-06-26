@@ -13,14 +13,15 @@
       poppler # for pdf preview 
       ffmpegthumbnailer # for video preview
       unar # for archive preview
+      jq # for JSON preview
     ];
 
     home.extraOptions = {
       services.darkman.lightModeScripts.yazi = ''
-        ln -sf ${./latte.toml} ${h}/.config/yazi/theme.toml
+        ${pkgs.coreutils}/bin/ln -sf ${./latte.toml} ${h}/.config/yazi/theme.toml
       '';
       services.darkman.darkModeScripts.yazi = ''
-        ln -sf ${./mocha.toml} ${h}/.config/yazi/theme.toml
+        ${pkgs.coreutils}/bin/ln -sf ${./mocha.toml} ${h}/.config/yazi/theme.toml
       '';
     };
 

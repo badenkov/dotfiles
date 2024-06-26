@@ -44,6 +44,8 @@ with lib; {
       # Я пока не понимаю эту опцию
       useUserPackages = true;
       useGlobalPkgs = true;
+
+      backupFileExtension = "backuphm";
       
       users.${config.user.name} = mkAliasDefinitions options.home.extraOptions;
 

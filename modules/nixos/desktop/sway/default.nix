@@ -60,11 +60,6 @@ let
       gsettings get $gnome_schema gtk-theme
     '';
   };
-  fn = k: v: { 
-    pos = "${builtins.toString v.x} ${builtins.toString v.y} res ${builtins.toString v.width}x${builtins.toString v.height}";
-    scale = builtins.toString v.scale; 
-  };
-  outputs = lib.attrsets.mapAttrs fn config.desktop.outputs;
   homeModule = { config, ... }: {
     wayland.windowManager.sway = {
       enable = true;
@@ -233,11 +228,15 @@ let
     services.darkman = let
       h = config.home.homeDirectory;
     in {
-      lightModeScripts.waybar = ''
+      lightModeScripts.sway = ''
+        export PATH=${pkgs.lib.makeBinPath [pkgs.coreutils pkgs.sway]}:$PATH
+
         cp -f ${./light} ${h}/.config/sway/colors
         swaymsg reload
       '';
-      darkModeScripts.waybar = ''
+      darkModeScripts.sway = ''
+        export PATH=${pkgs.lib.makeBinPath [pkgs.coreutils pkgs.sway]}:$PATH
+
         cp -f ${./dark} ${h}/.config/sway/colors
         swaymsg reload
       '';
@@ -272,8 +271,6 @@ in {
     };
 
     environment.systemPackages = with pkgs; [
-
-
       nwg-displays
 
       swayimg # Image viewer for Sway/Wayland 
@@ -324,7 +321,5 @@ in {
     ];
 
     home-manager.users.badenkov.imports = [ homeModule ];
-
-    environment.etc."ttt.json".text = (builtins.toJSON outputs);
   };
 }

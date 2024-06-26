@@ -72,10 +72,18 @@
     ####
     zen-mode.enable = true;
     twilight.enable = true;
+
+    ####
+    zk = {
+      enable = true;
+      picker = "telescope";
+    };
   };
 
   extraPackages = with pkgs; [
     lazygit
+
+    zk
   ];
 
   extraPlugins = with pkgs.vimPlugins; [

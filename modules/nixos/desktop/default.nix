@@ -12,35 +12,6 @@ in {
         If enabled, it will be installed desktop environment
       '';
     };
-
-    outputs = mkOption {
-      description = "Outputs";
-      default = {};
-      type = types.attrsOf (types.submodule {
-        options = {
-          x = mkOption {
-            type = types.int;
-            default = 0;
-          };
-          y = mkOption {
-            type = types.int;
-            default = 0;
-          };
-          width = mkOption {
-            type = types.int;
-            default = 1920;
-          };
-          height = mkOption {
-            type = types.int;
-            default = 1080;
-          };
-          scale = mkOption {
-            type = types.int;
-            default = 1;
-          };
-        };
-      });
-    };
   };
 
   config = mkIf cfg.enable {
@@ -81,9 +52,11 @@ in {
       libcamera
 
       ### Browsers
-      nyxt # Infinitely extensible web-browser (with Lisp development files using WebKitGTK platform port)
+      #nyxt # Infinitely extensible web-browser (with Lisp development files using WebKitGTK platform port)
+
       brave
-      chromium
+
+      #chromium
       firefox
 
       schreenshot

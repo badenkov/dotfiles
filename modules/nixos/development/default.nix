@@ -15,24 +15,6 @@
       lefthook # githook-и
 
       just
-
-      #process-compose
-
-      libyaml # for gem psych
-      gitFull
-
-      gcc
-
-      # libpcap
-      # postgresql
-      # libxml2
-      # libxslt
-      # pkg-config
-      # bundix
-      # gnumake
-
-      sqlite
-
       devenv
     ];
 
