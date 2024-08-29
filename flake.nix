@@ -6,8 +6,8 @@
       url = "github:snowfallorg/lib/dev";
       inputs.nixpkgs.follows = "nixpkgs";
 
-      # https://www.reddit.com/r/Nix/comments/1ckw9k2/error_nixversionsunstable_has_been_removed_for/
-      inputs.flake-utils-plus.url = "github:fl42v/flake-utils-plus";
+      # # https://www.reddit.com/r/Nix/comments/1ckw9k2/error_nixversionsunstable_has_been_removed_for/
+      # inputs.flake-utils-plus.url = "github:fl42v/flake-utils-plus";
     };
 
     #nixpkgs.url = "nixpkgs/nixos-unstable";
