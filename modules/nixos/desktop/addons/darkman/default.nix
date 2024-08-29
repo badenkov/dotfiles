@@ -15,12 +15,12 @@
           meta.mainProgram = "darkman";
         };
 
-        settings = {
-          # Tbilisi
-          lat = 41.716667;
-          lng = 44.783333;
-          usegeoclue = true;
-        };
+        # settings = {
+        #   # Tbilisi
+        #   lat = 41.716667;
+        #   lng = 44.783333;
+        #   usegeoclue = true;
+        # };
       };
     };
   };

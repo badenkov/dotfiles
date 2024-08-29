@@ -8,6 +8,11 @@
   
   time.timeZone = "Asia/Tbilisi";
 
+  location.provider = "geoclue2";
+
+  location.latitude = 41.716667;
+  location.longitude = 44.783333;
+
   networking.hostId = "fcd3ddc4";
   networking.hostName = "mechrevo";
 

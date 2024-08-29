@@ -17,6 +17,7 @@
       #slack
       #zoom-us
       #element-desktop
+      kdenlive
     ];
   };
 }

@@ -31,7 +31,7 @@ in {
 
           modules-left = [ "sway/workspaces" "sway/mode"];
           modules-center = [ "sway/window" ];
-          modules-right = [ "pulseaudio" "battery" "clock" "sway/language" ];
+          modules-right = [ "tray" "pulseaudio" "battery" "clock" "sway/language"];
           #"tray"];
 
           # "hyprland/workspaces" = {
