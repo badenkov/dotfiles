@@ -18,6 +18,10 @@
       #zoom-us
       #element-desktop
       kdenlive
+
+      chromium
+
+      qemu
     ];
   };
 }

@@ -13,6 +13,7 @@
 
       ignores = ["*~" "*.swp" ".dev/"];
       extraConfig = {
+        core.quotePath = "false";
         init.defaultBranch = "main";
         pull.rebase = "false";
       };

@@ -26,7 +26,7 @@ in {
       description = "${cfg.fullName} <${cfg.email}>";
 
       group = "users";
-      extraGroups = ["wheel" "networkmanager" "audio" "docker" "podman" "librvirtd"];
+      extraGroups = ["wheel" "networkmanager" "audio" "docker" "podman" "librvirtd" "kvm"];
 
       name = cfg.name;
       hashedPassword = "$6$ucyrbpeO1T$sHT836PsoavoQ.vStmFmxcma0eN8fWjqLTjZ5EDnwVjM0advna8QSur6/5UqsJt.7NSfQKV.wHFNlwv7QjPzS/";
